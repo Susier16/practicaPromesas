@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelStore - Proceso de compra</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>PixelStore</h1>
+    </header>
+
+    <main class="container">
+        <div class="grid-top">
+            <!-- Apartado 1: Formulario de compra -->
+            <section class="card">
+                <h2>Tu pedido</h2>
+                <form id="form-pedido">
+                    <div class="form-group">
+                        <label for="producto">Producto</label>
+                        <select id="producto" name="producto"></select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cantidad">Cantidad</label>
+                        <input type="number" id="cantidad" name="cantidad" min="1" value="1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="direccion">Dirección de envío</label>
+                        <input type="text" id="direccion" name="direccion" placeholder="Ej: C/ Mayor 12, Gandia">
+                    </div>
+
+                    <button type="submit" id="btn-comprar">Realizar compra</button>
+                </form>
+            </section>
+
+            <!-- Apartado 2: Estado del pedido -->
+            <section class="card">
+                <h2>Estado del pedido</h2>
+                <ul class="pasos-lista">
+                    <li id="paso-stock" class="paso pendiente">
+                        <div class="paso-info">
+                            <span class="badge">1</span>
+                            <span class="paso-titulo">Comprobar stock</span>
+                        </div>
+                        <span class="paso-estado">Pendiente</span>
+                    </li>
+
+                    <li id="paso-envio-gastos" class="paso pendiente">
+                        <div class="paso-info">
+                            <span class="badge">1</span>
+                            <span class="paso-titulo">Calcular gastos de envío</span>
+                        </div>
+                        <span class="paso-estado">Pendiente</span>
+                    </li>
+
+                    <li id="paso-pago" class="paso pendiente">
+                        <div class="paso-info">
+                            <span class="badge">2</span>
+                            <span class="paso-titulo" id="titulo-pago">Procesar pago</span>
+                        </div>
+                        <span class="paso-estado">Pendiente</span>
+                    </li>
+
+                    <li id="paso-envio" class="paso pendiente">
+                        <div class="paso-info">
+                            <span class="badge">3</span>
+                            <span class="paso-titulo">Enviar pedido</span>
+                        </div>
+                        <span class="paso-estado">Pendiente</span>
+                    </li>
+                </ul>
+
+                <div id="mensaje-resultado" class="mensaje oculto"></div>
+                <button type="button" id="btn-reintentar" class="btn-reintentar oculto">Reintentar envío</button>
+            </section>
+        </div>
+
+        <!-- Apartado 3: Historial de pedidos -->
+        <section class="card">
+            <h2>Mis pedidos</h2>
+            <ul id="lista-pedidos" class="historial-lista">
+                <!-- Se rellena desde JS -->
+            </ul>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
